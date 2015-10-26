@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019181148) do
+ActiveRecord::Schema.define(version: 20151019200639) do
 
   create_table "detention_attendances", force: :cascade do |t|
     t.date     "date"
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 20151019181148) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "professional_name"
-    t.string   "user_class"
+    t.string   "role"
     t.string   "title"
     t.integer  "school_id"
     t.boolean  "confirmed?"

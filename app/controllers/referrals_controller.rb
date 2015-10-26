@@ -3,6 +3,7 @@ class ReferralsController < ApplicationController
   end
 
   def new
+    @referral = Referral.new
   end
 
   def create
