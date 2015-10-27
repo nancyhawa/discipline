@@ -11,7 +11,29 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require bootstrap
-//= require_tree ../../../vendor/assets/javascripts/.
+
+//= require jquery-ui-1.10.3.custom.min
+//= require jquery.ui.touch-punch.min
+//= require jquery.sparkline.min
+//= require fullcalendar.min
+//= require jquery.flot.min
+//= require jquery.flot.pie.min
+//= require jquery.flot.stack.min
+//= require jquery.flot.resize.min
+//= require jquery.flot.time.min
+//= require jquery.autosize.min
+//= require jquery.placeholder.min
+//= require moment.min
+//= require daterangepicker.min
+//= require jquery.easy-pie-chart.min
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
+
+//= require custom.min
+//= require core.min
+
+//= require pages/index
+
 //= require_tree .

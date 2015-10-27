@@ -10,15 +10,43 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree ../../../vendor/assets/stylesheets/.
- *= require_tree .
  *= require_self
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+ *= require_tree
+
  */
+
 @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "font-awesome";
+
+@import "style";
+@import "retina";
+@import "print";
+
+@import "jquery-ui-1.10.3.custom.css";
+@import "fullcalendar.css";
+@import "chosen.css";
+@import "select2.css";
+@import "jquery.cleditor.css";
+@import "jquery.noty.css";
+@import "noty_theme_default.css";
+@import "elfinder.min.css";
+@import "elfinder.theme.css";
+@import "uploadify.css";
+@import "jquery.gritter.css";
+@import "font-awesome.min.css";
+@import "font-awesome-ie7.min.css";
+@import "glyphicons.css";
+@import "halflings.css";
+@import "dropzone.css";
+@import "filetypes.css";
+@import "social.css";
+@import "xcharts.min.css";
+@import "jquery.easy-pie-chart.css";
+@import "icheck/all.css";
+@import "bootstrap-editable.css";
+
+
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;

@@ -1,30 +1,12 @@
-<h1>Create a New Referral</h1>
+<div id="referral-page">
+  <h1>Create a New Report</h1>
+  <div id="referral-navigation-tabs">
+    <button class="btn btn-lg btn-primary referral-tab" id="commendation">Acclaim</button>
+    <button class="btn btn-lg btn-danger referral-tab" id="referral">Referral</button>
+    <button class="btn btn-lg btn-warning referral-tab" id="uniform">Uniform</button>
+    <button class="btn btn-lg btn-success referral-tab" id="tardy">Tardy</button>
 
-<%= form_tag(new_referral_path) do |f| %>
-  <%= label_tag(:student_name) %>:
-  <%= text_field_tag(:student_name) %><br />
+  </div>
 
-  <%= label_tag(:date) %>:
-  <%= date_field(:referral, :date) %><br />
-
-  <%= label_tag(:bullying_or_threatening_behavior) %>:
-  <%= check_box_tag("infractions[]", :bullying_or_threatening_behavior) %><br />
-  <%= label_tag(:inappropriate_sexual_behavior) %>:
-  <%= check_box_tag("infractions[]", :inappropriate_sexual_behavior) %><br />
-  <%= label_tag(:vandalism) %>:
-  <%= check_box_tag("infractions[]", :vandalism) %><br />
-  <%= label_tag(:insubordination) %>:
-  <%= check_box_tag("infractions[]", :insubordination) %><br />
-  <%= label_tag(:profanity) %>:
-  <%= check_box_tag("infractions[]", :profanity) %><br />
-  <%= label_tag(:disrupting_the_educational_process) %>:
-  <%= check_box_tag("infractions[]", :disrupting_the_educational_process) %><br />
-
-  <%= label_tag(:anecdotal) %>:
-  <%= text_field_tag(:anecdotal) %><br />
-
-
-
-
-  <%= submit_tag("Submit") %>
-<% end %>
+  <%= render partial: 'negative' %>
+</div>

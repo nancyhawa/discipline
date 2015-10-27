@@ -1,3 +1,36 @@
 // Place all the styles related to the Referrals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.text-area-input {
+  height: 200px !important;
+}
+
+#referral-navigation-tabs {
+  margin: auto !important;
+}
+
+.referral-tab {
+  width: 25%;
+  // height: 30px;
+  position: relative;
+  float: left;
+  text-align: center;
+  // border: 1px solid black;
+  // font-size: 1.5em;
+  display: block !important;
+}
+
+#referral-form {
+  width: 100%;
+  // margin: auto !important;
+  position: relative;
+  clear: both;
+}
+
+#referral-page {
+  display: block;
+  margin-left: 10%;
+  width: 60%
+}
