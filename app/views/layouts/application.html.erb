@@ -4,6 +4,7 @@
 	<%= csrf_meta_tags %>
 	<%= analytics_init if Rails.env.production? %>
 	<%= javascript_include_tag :modernizr %>
+	<%= javascript_include_tag :application %>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
 	<title>EDS</title>
@@ -46,7 +47,7 @@
 			      <span class="icon-bar"></span>
 			</button>
 			<a id="main-menu-toggle" class="hidden-xs open"><i class="fa fa-bars"></i></a>
-			<a class="navbar-brand col-md-2 col-sm-1 col-xs-2" href="index.html"><span>Genius</span></a>
+			<a class="navbar-brand col-md-2 col-sm-1 col-xs-2" href="index.html"><span>Clementine</span></a>
 			<div id="search" class="col-sm-4 col-xs-8 col-lg-3">
 				<select>
 					<option>everything</option>
@@ -233,7 +234,7 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-									<span class="avatar"><img src="assets/img/avatar2.jpg" alt="Avatar"></span>
+									<span class="avatar"><%= image_tag "avatar2.jpg" %></span>
 									<span class="header">
 										<span class="from">
 									    	Megan Abott
@@ -249,7 +250,7 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-									<span class="avatar"><img src="assets/img/avatar3.jpg" alt="Avatar"></span>
+									<span class="avatar"><%= image_tag "avatar3.jpg" %></span>
 									<span class="header">
 										<span class="from">
 									    	Kate Ross
@@ -265,7 +266,7 @@
                             </li>
 							<li>
                                 <a href="index.html#">
-									<span class="avatar"><img src="assets/img/avatar4.jpg" alt="Avatar"></span>
+									<span class="avatar"><%= image_tag "avatar4.jpg" %></span>
 									<span class="header">
 										<span class="from">
 									    	Julie Blank
@@ -281,7 +282,7 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-									<span class="avatar"><img src="assets/img/avatar5.jpg" alt="Avatar"></span>
+									<span class="avatar"><%= image_tag "avatar5.jpg" %></span>
 									<span class="header">
 										<span class="from">
 									    	Jane Sanders
@@ -309,7 +310,7 @@
 					<!-- start: User Dropdown -->
 					<li class="dropdown">
 						<a class="btn account dropdown-toggle" data-toggle="dropdown" href="index.html#">
-							<div class="avatar"><img src="assets/img/avatar.jpg" alt="Avatar"></div>
+							<div class="avatar"><%= image_tag "avatar.jpg" %></div>
 							<div class="user">
 								<span class="hello">Welcome!</span>
 								<span class="name">Łukasz Holeczek</span>
@@ -334,7 +335,7 @@
 		<div class="row">
 
 			<!-- start: Main Menu -->
-			<div id="sidebar-left" class="col-lg-2 col-sm-1 ">
+			<div id="sidebar-left" class="col-lg-2 col-md-2 col-sm-1 visible-md visible-lg">
 
 				<div class="sidebar-nav nav-collapse collapse navbar-collapse">
 					<ul class="nav main-menu">
@@ -394,7 +395,7 @@
 								<li><a class="submenu" href="icons-glyphicons-pro.html"><i class="fa fa-star"></i><span class="hidden-sm text"> Glyphicons PRO</span></a></li>
 								<li><a class="submenu" href="icons-filetypes.html"><i class="fa fa-star"></i><span class="hidden-sm text"> Filetypes</span></a></li>
 								<li><a class="submenu" href="icons-social.html"><i class="fa fa-star"></i><span class="hidden-sm text"> Social</span></a></li>
-								<li><a class="submenu" href="icons-font-awesome.html"><i class="fa fa-star"></i><span class="hidden-sm text"> Font Awesome</span></a></li>
+								<!-- <li><a class="submenu" href="icons-font-awesome.html"><i class="fa fa-star"></i><span class="hidden-sm text"> Font Awesome</span></a></li> -->
 							</ul>
 						</li>
 						<li>
@@ -427,19 +428,17 @@
 						</li>
 					</ul>
 				</div>
-									<a href="index.html#" id="main-menu-min" class="full visible-md visible-lg"><i class="fa fa-angle-double-left"></i></a>
-							</div>
+				<a href="index.html#" id="main-menu-min" class="full visible-md visible-lg"><i class="fa fa-angle-double-left"></i></a>
+		</div>
 			<!-- end: Main Menu -->
 
 			<!-- start: Content -->
 
 
-			<div id="content" class="col-lg-10 col-md-9 col-sm-11 ">
+			<div id="content" class="col-lg-6 col-md-5 ">
 
 			<div class="row">
 				<%= yield %>
-			</div>
-
 
 				<div class="col-md-3 visible-md visible-lg" id="feed">
 
@@ -550,7 +549,7 @@
 			</div><!--/.col-->
 
 			<div class="col-sm-7 text-right">
-				Powered by: <a href="http://bootstrapmaster.com/demo/genius/" alt="Bootstrap Admin Templates">Genius Dashboard</a> | Based on Bootstrap 3.1.1 | Built with brix.io <a href="http://brix.io" alt="Brix.io - Interface Builder">Interface Builder</a>
+				Powered by: <a href="http://bootstrapmaster.com/demo/genius/" alt="Bootstrap Admin Templates">Clementine</a> | Based on Bootstrap 3.1.1 | Built with brix.io <a href="http://brix.io" alt="Brix.io - Interface Builder">Interface Builder</a>
 			</div><!--/.col-->
 
 		</div><!--/.row-->
@@ -560,7 +559,7 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="assets/js/jquery-2.1.0.min.js"></script>
+			<!-- <script src="assets/js/jquery-2.1.0.min.js"></script> -->
 
 	<!--<![endif]-->
 
@@ -572,9 +571,9 @@
 
 	<!--[if !IE]>-->
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			window.jQuery || document.write("<script src='assets/js/jquery-2.1.0.min.js'>"+"<"+"/script>");
-		</script>
+		</script> -->
 
 	<!--<![endif]-->
 
@@ -585,8 +584,8 @@
 		</script>
 
 	<![endif]-->
-	<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script> -->
 
 
 

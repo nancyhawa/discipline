@@ -170,7 +170,7 @@ jQuery(document).ready(function($){
 
 			$('body').addClass('sidebar-minified');
 			$('#content').addClass('sidebar-minified');
-			// $('#sidebar-left').addClass('minified');
+			$('#sidebar-left').addClass('minified');
 
 			$('.dropmenu > .chevron').removeClass('opened').addClass('closed');
 			$('.dropmenu').parent().find('ul').hide();

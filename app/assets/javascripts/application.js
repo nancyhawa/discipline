@@ -13,12 +13,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-
 //= require jquery-ui-1.10.3.custom.min
 //= require jquery.ui.touch-punch.min
 //= require jquery.sparkline.min
 //= require fullcalendar.min
-//= require jquery.flot.min
+//= require jquery.flot
 //= require jquery.flot.pie.min
 //= require jquery.flot.stack.min
 //= require jquery.flot.resize.min
@@ -31,8 +30,9 @@
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap.min
 
+
 //= require custom.min
-//= require core.min
+//= require core
 
 //= require pages/index
 

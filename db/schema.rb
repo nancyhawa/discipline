@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019200639) do
+ActiveRecord::Schema.define(version: 20151027185018) do
 
   create_table "detention_attendances", force: :cascade do |t|
     t.date     "date"
@@ -157,13 +157,14 @@ ActiveRecord::Schema.define(version: 20151019200639) do
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "osis_number"
+    t.string   "osis_number"
     t.integer  "grade"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "meal_code"
     t.date     "birthdate"
     t.integer  "school_id"
+    t.string   "phone"
   end
 
   add_index "students", ["last_name"], name: "index_students_on_last_name"

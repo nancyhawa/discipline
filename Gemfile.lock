@@ -285,6 +285,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   modernizr-rails
+  nokogiri
   pg
   pry
   rails (= 4.2.0)
