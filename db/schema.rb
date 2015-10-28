@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027185018) do
+ActiveRecord::Schema.define(version: 20151028150316) do
 
   create_table "detention_attendances", force: :cascade do |t|
     t.date     "date"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20151027185018) do
     t.integer  "student_id"
     t.integer  "staff_member_id"
     t.boolean  "positive?"
-    t.string   "type"
+    t.string   "referral_type"
     t.text     "anecdotal"
     t.text     "additional_information"
     t.integer  "points"

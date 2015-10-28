@@ -1,0 +1,76 @@
+<div class="col-md-3 visible-md visible-lg" id="feed">
+
+  <h2>Activity Feed <a class="fa fa-repeat"></a></h2>
+
+  <!-- <ul id="filter">
+    <li><a class="green" href="index.html#" data-option-value="task">Commendations</a></li>
+    <li><a class="red" href="index.html#" data-option-value="comment">Referrals</a></li>
+    <li><a class="blue" href="index.html#" data-option-value="message">Tardies</a></li>
+    <li><a href="index.html#" data-option-value="all">All</a></li>
+  </ul> -->
+
+  <ul id="timeline">
+
+  <% Referral.last(10).reverse.each do |referral| %>
+    <% if referral.referral_type == "discipline" %>
+      <li class="comment">
+        <i class="fa fa-thumbs-down red"></i>
+    <% elsif referral.referral_type == "acclaim" %>
+      <li class="task">
+        <i class="fa fa-star green"></i>
+    <% elsif referral.referral_type == "tardy" %>
+      <li class="message">
+        <i class="fa fa-clock-o blue"></i>
+    <% elsif referral.referral_type == "uniform" %>
+      <li class="message">
+        <i class="fa fa-black-tie yellow"></i>
+    <% end %>
+      <div class="title"> <%="#{referral.student.first_name} #{referral.student.last_name}" %></div>
+      <div class="desc"> <%= "#{referral.anecdotal}" %></div>
+      <span class="date"> <%= display_time_elapsed(referral.created_at) %></span>
+      <span class="separator">•</span>
+      <span class="name"><%= referral.staff_member.professional_name %></span>
+    </li>
+    <% end %>
+
+    <!-- <li class="comment">
+
+      <div class="title">Sales increase</div>
+      <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+      <span class="date">15 minutes ago</span>
+      <span class="separator">•</span>
+      <span class="name">Ashley Tan</span>
+    </li>
+
+    <li class="comment">
+      <i class="fa fa-comments red"></i>
+      <div class="title">New Bootstrap Theme</div>
+      <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+      <span class="date">Today</span>
+      <span class="separator">•</span>
+      <span class="name">Ashley Tan</span>
+    </li>
+
+    <li class="message">
+
+      <div class="title">Job offer</div>
+      <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+      <span class="date">Yesterday</span>
+      <span class="separator">•</span>
+      <span class="name">James Doe</span>
+    </li>
+
+    <li class="task">
+      <i class="fa fa-check-square green"></i>
+      <div class="title">Custom Design</div>
+      <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      <span class="date">5 days ago</span>
+      <span class="separator">•</span>
+      <span class="name">Megan Abbott</span>
+    </li> -->
+
+  </ul>
+  <!-- <a href="index.html#" id="load-more">•••</a> -->
+
+
+</div><!--/col-->

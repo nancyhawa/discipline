@@ -1,5 +1,4 @@
-<div class="col-lg-7 col-md-7 visible-md visible-lg" id="referral-page">
-  <h1>Create a New Report</h1>
+<div class="col-lg-6 col-md-6 visible-md visible-lg visible-sm visible-xs clementine-content" id="referral-page">
   <div id="referral-navigation-tabs">
     <button class="btn btn-lg btn-primary referral-tab" id="commendation">Acclaim</button>
     <button class="btn btn-lg btn-danger referral-tab" id="referral">Referral</button>
@@ -8,5 +7,16 @@
 
   </div>
 
-  <%= render partial: 'negative' %>
+  <div id="negative-referral-form">
+    <%= render partial: 'negative' %>
+  </div>
+  <div id="positive-referral-form" style="display:none">
+    <%= render partial: 'positive' %>
+  </div>
+  <div id="tardy-referral-form" style="display:none">
+    <%= render partial: 'tardy' %>
+  </div>
+  <div id="uniform-referral-form" style="display:none">
+    <%= render partial: 'uniform' %>
+  </div>
 </div>

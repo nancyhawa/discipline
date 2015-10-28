@@ -1,3 +1,40 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready(function(){
+  positiveReferralListener();
+  negativeReferralListener();
+  tardyReferralListener();
+  uniformReferralListener();
+})
+
+function positiveReferralListener(){
+  $('#commendation').on('click', function(){
+    $('#tardy-referral-form').hide();
+    $('#uniform-referral-form').hide();
+    $('#negative-referral-form').hide();
+    $('#positive-referral-form').show();
+  })
+}
+
+function negativeReferralListener(){
+  $('#referral').on('click', function(){
+    $('#tardy-referral-form').hide();
+    $('#uniform-referral-form').hide();
+    $('#positive-referral-form').hide();
+    $('#negative-referral-form').show();
+  })
+}
+function tardyReferralListener(){
+  $('#tardy').on('click', function(){
+    $('#uniform-referral-form').hide();
+    $('#positive-referral-form').hide();
+    $('#negative-referral-form').hide();
+    $('#tardy-referral-form').show();
+  })
+}
+function uniformReferralListener(){
+  $('#uniform').on('click', function(){
+    $('#positive-referral-form').hide();
+    $('#negative-referral-form').hide();
+    $('#tardy-referral-form').hide();
+    $('#uniform-referral-form').show();
+  })
+}

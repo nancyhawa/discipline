@@ -218,7 +218,7 @@
 							</li>
                         	<li>
                                 <a href="index.html#">
-									<span class="avatar"><%= image_tag "avatar.jpg" %></span>
+									<span class="avatar"></span>
 									<span class="header">
 										<span class="from">
 									    	Łukasz Holeczek
@@ -308,21 +308,27 @@
 						</a>
 					</li>
 					<!-- start: User Dropdown -->
-					<li class="dropdown">
-						<a class="btn account dropdown-toggle" data-toggle="dropdown" href="index.html#">
-							<div class="avatar"><%= image_tag "avatar.jpg" %></div>
-							<div class="user">
-								<span class="hello">Welcome!</span>
-								<span class="name">Łukasz Holeczek</span>
-							</div>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="index.html#"><i class="fa fa-user"></i> Profile</a></li>
-							<li><a href="index.html#"><i class="fa fa-cog"></i> Settings</a></li>
-							<li><a href="index.html#"><i class="fa fa-envelope"></i> Messages</a></li>
-							<li><a href="page-login.html"><i class="fa fa-off"></i> Logout</a></li>
-						</ul>
-					</li>
+					<% if !!current_staff_member %>
+						<li class="dropdown">
+							<a class="btn account dropdown-toggle" data-toggle="dropdown" href="index.html#">
+								<div class="avatar"></div>
+								<div class="user">
+										<span class="hello">Welcome!</span>
+										<span class="name">
+											<%= current_staff_member.professional_name %>
+										</span>
+										<ul class="dropdown-menu">
+											<li><a href="index.html#"><i class="fa fa-user"></i> Profile</a></li>
+											<li><a href="index.html#"><i class="fa fa-cog"></i> Settings</a></li>
+											<li><a href="index.html#"><i class="fa fa-envelope"></i> Messages</a></li>
+											<li><%= link_to('Logout', destroy_staff_member_session_path, :method => :delete) %></li>
+										</ul>
+								</div>
+							</a>
+						</li>
+					<% else %>
+						<span id="sign-in-link"><%= link_to('Sign In', new_staff_member_session_path) %></span>
+					<% end %>
 					<!-- end: User Dropdown -->
 				</ul>
 			</div>
@@ -435,87 +441,27 @@
 			<!-- start: Content -->
 
 
-			<div id="content" class="col-lg-6 col-md-5 ">
+			<div id="content" class="">
 
 			<div class="row">
+				<% if notice %>
+					<p class="alert alert-success"><%= notice %></p>
+				<% end %>
+				<% if alert %>
+					<p class="alert alert-danger"><%= alert %></p>
+				<% end %>
 				<%= yield %>
 
-				<div class="col-md-3 visible-md visible-lg" id="feed">
-
-					<h2>Activity Feed <a class="fa fa-repeat"></a></h2>
-
-					<ul id="filter">
-						<li><a class="green" href="index.html#" data-option-value="task">Tasks</a></li>
-						<li><a class="red" href="index.html#" data-option-value="comment">Comments</a></li>
-						<li><a class="blue" href="index.html#" data-option-value="message">Messages</a></li>
-						<li><a href="index.html#" data-option-value="all">All</a></li>
-					</ul>
-
-					<ul id="timeline">
-
-						<li class="task">
-							<i class="fa fa-check-square green"></i>
-							<div class="title">New website - A/B Tests</div>
-							<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-							<span class="date">3 seconds ago</span>
-							<span class="separator">•</span>
-							<span class="name">Megan Abbott</span>
-						</li>
-
-						<li class="comment">
-							<i class="fa fa-comments red"></i>
-							<div class="title">Sales increase</div>
-							<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<span class="date">15 minutes ago</span>
-							<span class="separator">•</span>
-							<span class="name">Ashley Tan</span>
-						</li>
-
-						<li class="comment">
-							<i class="fa fa-comments red"></i>
-							<div class="title">New Bootstrap Theme</div>
-							<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<span class="date">Today</span>
-							<span class="separator">•</span>
-							<span class="name">Ashley Tan</span>
-						</li>
-
-						<li class="message">
-							<i class="fa fa-pencil-square blue"></i>
-							<div class="title">Job offer</div>
-							<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-							<span class="date">Yesterday</span>
-							<span class="separator">•</span>
-							<span class="name">James Doe</span>
-						</li>
-
-						<li class="task">
-							<i class="fa fa-check-square green"></i>
-							<div class="title">Custom Design</div>
-							<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-							<span class="date">5 days ago</span>
-							<span class="separator">•</span>
-							<span class="name">Megan Abbott</span>
-						</li>
-
-					</ul>
-					<a href="index.html#" id="load-more">•••</a>
-
-
-				</div><!--/col-->
+				<% if !!current_staff_member %>
+					<%= render partial: 'activity_feed' %>
+				<% end %>
 
 			</div><!--/row-->
-
-
-
-
-
-
 
 			</div>
 			<!-- end: Content -->
 
-				</div><!--/row-->
+
 
 	</div><!--/container-->
 

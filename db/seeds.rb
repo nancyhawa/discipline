@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Infraction.create(name: "Vandalism")
+Infraction.create(name: "Inappropriate sexual behavior")
+Infraction.create(name: "Disrupting the educational process")
+Infraction.create(name: "Profanity")
+Infraction.create(name: "Bullying or threatening behavior")
+Infraction.create(name: "Insubordination")

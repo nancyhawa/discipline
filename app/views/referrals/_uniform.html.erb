@@ -1,0 +1,24 @@
+<h1>Create a New Report - Uniform Violation</h1>
+<%= form_tag(referrals_path) do |f| %>
+
+  <%= render partial: 'date' %>
+
+  <div class="form-group">
+    <%= label_tag(:period) %>: <br />
+    <%= text_field_tag("referral[period]", nil, class:"form-control") %><br />
+  </div>
+
+  <%= hidden_field_tag("referral[positive?]", "false") %><br />
+  <%= hidden_field_tag("referral[referral_type]", "uniform") %><br />
+  <%= hidden_field_tag("referral[anecdotal]", "Student was out of uniform.") %><br />
+  <%= hidden_field_tag("referral[staff_member_id]", current_staff_member.id, class:"form-control text-area-input") %><br />
+
+  <div class="form-group">
+    <% Student.all.each do |student| %>
+      <%= check_box_tag("referral[students][]", student.id) %>
+      <%= label_tag(student.full_name) %><br />
+    <% end %>
+  </div>
+
+  <%= submit_tag("Submit") %>
+<% end %>

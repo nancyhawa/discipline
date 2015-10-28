@@ -1,0 +1,22 @@
+<h1>Create a New Report - Acclaim</h1>
+<%= form_tag(referrals_path) do |f| %>
+
+  <%= render partial: 'student_name_input' %>
+  <%= render partial: 'date' %>
+
+  <div class="form-group">
+    <%= label_tag(:period) %>: <br />
+    <%= text_field_tag("referral[period]", nil, class:"form-control") %><br />
+  </div>
+
+  <%= hidden_field_tag("referral[positive?]", "true", class:"form-control text-area-input") %><br />
+  <%= hidden_field_tag("referral[referral_type]", "acclaim", class:"form-control text-area-input") %><br />
+  <%= hidden_field_tag("referral[staff_member_id]", current_staff_member.id, class:"form-control text-area-input") %><br />
+
+  <div class="form-group">
+    <%= label_tag(:anecdotal) %>: <br />
+    <%= text_area_tag("referral[anecdotal]", nil, class:"form-control text-area-input") %><br />
+  </div>
+
+  <%= submit_tag("Submit") %>
+<% end %>

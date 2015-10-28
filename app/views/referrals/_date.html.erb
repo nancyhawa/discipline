@@ -1,0 +1,9 @@
+<div class="form-group">
+  <%= label_tag(:date, nil, class:"control-label") %>: Optional. You only need to complete this if you are not writing the referral on the date of the incident.
+  <div class="controls">
+    <div class="input-group date col-sm-4">
+      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+      <%= date_field("referral[date]", nil, class:"form-control date-picker") %>
+    </div>
+  </div>
+</div>

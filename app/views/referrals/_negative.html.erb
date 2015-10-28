@@ -1,48 +1,55 @@
-<div id="referral-form">
-  <%= form_tag(referrals_path) do |f| %>
-    <div class="form-group">
-      <%= label_tag(:student_name, nil, class:"control-label") %>:<br />
-      <div class="controls">
-        <div class="input-group col-sm-4">
-          <%= text_field_tag(:student_name, nil, class:"form-control date-picker") %>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag(:date, nil, class:"control-label") %>:<br />
-      <div class="controls">
-        <div class="input-group date col-sm-4">
-          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-          <%= date_field(:date, nil, class:"form-control date-picker") %>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group"
-      <%= check_box_tag("infractions[]", :bullying_or_threatening_behavior) %>
-      <%= label_tag(:bullying_or_threatening_behavior) %><br />
-      <%= check_box_tag("infractions[]", :inappropriate_sexual_behavior) %>
-      <%= label_tag(:inappropriate_sexual_behavior) %><br />
-      <%= check_box_tag("infractions[]", :vandalism) %>
-      <%= label_tag(:vandalism) %><br />
-      <%= check_box_tag("infractions[]", :insubordination) %>
-      <%= label_tag(:insubordination) %><br />
-      <%= check_box_tag("infractions[]", :profanity) %>
-      <%= label_tag(:profanity) %><br />
-      <%= check_box_tag("infractions[]", :disrupting_the_educational_process) %>
-      <%= label_tag(:disrupting_the_educational_process) %><br />
-    </div>
-
-    <div class="form-group">
-      <%= label_tag(:anecdotal) %>: <br />
-      <%= text_area_tag(:anecdotal, nil, class:"form-control text-area-input") %><br />
-    </div>
-    <div class="form-group">
-      <%= label_tag(:additional_information) %>:<br />
-      <%= text_area_tag(:additional_information, nil, class:"form-control text-area-input") %><br />
-    </div>
-
-    <%= submit_tag("Submit") %>
-  <% end %>
+  <h1>Create a New Report - Referral</h1>
+<div class="form-group">
+  <%= check_box_tag("referral[deans_referral?][]", "true") %>
+  <%= label_tag("This is a dean's referral stemming from an incident that resulted in suspension.") %><br />
 </div>
+
+<%= form_tag(referrals_path) do |f| %>
+
+  <%= render partial: 'student_name_input' %>
+  <%= render partial: 'date' %>
+
+  <div class="form-group">
+    <%= label_tag(:period) %>: <br />
+    <%= text_field_tag("referral[period]", nil, class:"form-control") %><br />
+  </div>
+
+  <%= hidden_field_tag("referral[positive?]", "false", class:"form-control text-area-input") %><br />
+  <%= hidden_field_tag("referral[referral_type]", "discipline", class:"form-control text-area-input") %><br />
+  <%= hidden_field_tag("referral[staff_member_id]", current_staff_member.id, class:"form-control text-area-input") %><br />
+
+  <div class="form-group">
+    <%= label_tag(:location) %>: <br />
+    <%= text_field_tag("referral[location]", nil, class:"form-control") %><br />
+  </div>
+
+  <div class="form-group">
+    <% Infraction.all.each do |infraction| %>
+    <%= check_box_tag("referral[infractions][]", infraction.name) %>
+    <%= label_tag(infraction.name) %><br />
+    <% end %>
+    <!-- <%= check_box_tag("referral[infractions][]", "bullying_or_threatening_behavior") %>
+    <%= label_tag(:bullying_or_threatening_behavior) %><br />
+    <%= check_box_tag("referral[infractions][]", "Inappropriate sexual behavior") %>
+    <%= label_tag(:inappropriate_sexual_behavior) %><br />
+    <%= check_box_tag("referral[infractions][]", "Vandalism") %>
+    <%= label_tag(:vandalism) %><br />
+    <%= check_box_tag("referral[infractions][]", "Insubordination") %>
+    <%= label_tag(:insubordination) %><br />
+    <%= check_box_tag("referral[infractions][]", "Profanity") %>
+    <%= label_tag(:profanity) %><br />
+    <%= check_box_tag("referral[infractions][]", "Disrupting the educational process") %>
+    <%= label_tag(:disrupting_the_educational_process) %><br /> -->
+  </div>
+
+  <div class="form-group">
+    <%= label_tag(:anecdotal) %>: <br />
+    <%= text_area_tag("referral[anecdotal]", nil, class:"form-control text-area-input") %><br />
+  </div>
+  <div class="form-group">
+    <%= label_tag(:additional_information) %>:<br />
+    <%= text_area_tag("referral[additional_information]", nil, class:"form-control text-area-input") %><br />
+  </div>
+
+  <%= submit_tag("Submit") %>
+<% end %>
