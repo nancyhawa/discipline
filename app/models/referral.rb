@@ -3,6 +3,9 @@ class Referral < ActiveRecord::Base
   belongs_to :staff_member
   has_many :infractions, through: :referral_infractions
 
+  validates :student_id, presence: true
+  validates :staff_member_id, presence: true
+
   def self.build_from_form_input(params, referral_params)
     @@params = params
     @@referral_params = referral_params

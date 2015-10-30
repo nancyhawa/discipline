@@ -20,3 +20,7 @@
     <%= render partial: 'uniform' %>
   </div>
 </div>
+
+<% if !!current_staff_member %>
+  <%= render partial: 'activity_feed' %>
+<% end %>

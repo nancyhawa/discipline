@@ -6,7 +6,7 @@ $(document).ready(function(){
 
   $(function() {
     $("#referral_student_id").magicSuggest({
-        // highlight: true,
+        highlight: false,
         maxSuggestions: 15,
         noSuggestionText: 'No result matching your entry.',
         required: true,

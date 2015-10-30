@@ -345,16 +345,16 @@
 
 				<div class="sidebar-nav nav-collapse collapse navbar-collapse">
 					<ul class="nav main-menu">
-						<li><a href="index.html"><i class="fa fa-bar-chart-o"></i><span class="hidden-sm text"> Dashboard</span></a></li>
+						<li><a href="index.html"><i class="fa fa-bar-chart-o"></i><span class="hidden-sm text"> Referrals</span></a></li>
 						<li>
-							<a class="dropmenu" href="index.html#"><i class="fa fa-eye"></i><span class="hidden-sm text"> UI Features</span> <span class="chevron closed"></span></a>
+							<a class="dropmenu" href="index.html#"><i class="fa fa-eye"></i><span class="hidden-sm text"> Settings</span> <span class="chevron closed"></span></a>
 							<ul>
-								<li><a class="submenu" href="ui-sliders-progress.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Sliders & Progress</span></a></li>
-								<li><a class="submenu" href="ui-nestable-list.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Nestable Lists</span></a></li>
-								<li><a class="submenu" href="ui-elements.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Elements</span></a></li>
+								<li><a class="submenu" href="ui-sliders-progress.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Rosters</span></a></li>
+								<li><a class="submenu" href="ui-nestable-list.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Profile</span></a></li>
+								<!-- <li><a class="submenu" href="ui-elements.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Elements</span></a></li> -->
 							</ul>
 							</li>
-						<li><a href="widgets.html"><i class="fa fa-dashboard"></i><span class="hidden-sm text"> Widgets</span></a></li>
+						<li><a href="widgets.html"><i class="fa fa-dashboard"></i><span class="hidden-sm text"> Data</span></a></li>
 						<li>
 							<a class="dropmenu" href="index.html#"><i class="fa fa-folder-o"></i><span class="hidden-sm text"> Example Pages</span> <span class="chevron closed"></span></a>
 							<ul>
@@ -452,9 +452,7 @@
 				<% end %>
 				<%= yield %>
 
-				<% if !!current_staff_member %>
-					<%= render partial: 'activity_feed' %>
-				<% end %>
+
 
 			</div><!--/row-->
 
