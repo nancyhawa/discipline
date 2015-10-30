@@ -30,7 +30,7 @@
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap.min
 
-
+//= magicsuggest/magicsuggest-min
 //= require custom.min
 //= require core
 

@@ -17,6 +17,7 @@ class Referral < ActiveRecord::Base
   def self.build_positive
     referral = Referral.create(@@referral_params)
     referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
+    referral.update_attribute(:student_id, @@params[:referral][:student_id][0].to_i)
     referral.save
   end
 
@@ -25,6 +26,7 @@ class Referral < ActiveRecord::Base
     @@params[:referral][:infractions].each do | input |
       ReferralInfraction.create(referral_id: referral.id, infraction_id: Infraction.find_by(name: input).id)
     end
+    referral.update_attribute(:student_id, @@params[:referral][:student_id][0].to_i)
     referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
     referral.save
   end

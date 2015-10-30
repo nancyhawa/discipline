@@ -1,7 +1,18 @@
+<!-- <div class="form-group">
+  <%# label_tag(:student_name, nil, class:"control-label") %>:<br />
+  <div class="controls">
+    <div class="input-group col-sm-4">
+      <%# text_field_tag("referral[student_id]", nil, class:"form-control student_name_input_field") %>
+      <%# render partial: 'student_names_suggestions' %>
+    </div>
+  </div>
+</div> -->
+
+
 <div class="form-group">
   <%= label_tag(:student_name, nil, class:"control-label") %>:<br />
   <div class="controls">
-    <div class="input-group col-sm-4">
+    <div id="student-name-input-field" class="input-group col-sm-4">
       <%= select_tag("referral[student_id]", options_from_collection_for_select(@students, 'id', "full_name"), class:"form-control date-picker") %>
     </div>
   </div>

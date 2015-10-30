@@ -1,0 +1,7 @@
+<div id="student_name_suggestions" style="display:none">
+  <% @students.each do |student| %>
+    <div class="individual-student-name">
+      <%= student.full_name %>
+    </div>
+  <% end %>
+</div>

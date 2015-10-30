@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151028150316) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "detention_attendances", force: :cascade do |t|
     t.date     "date"
     t.integer  "staff_member_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "detention_attendances", ["staff_member_id"], name: "index_detention_attendances_on_staff_member_id"
+  add_index "detention_attendances", ["staff_member_id"], name: "index_detention_attendances_on_staff_member_id", using: :btree
 
   create_table "detention_students", force: :cascade do |t|
     t.integer  "detention_attendance_id"
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "detention_students", ["detention_attendance_id"], name: "index_detention_students_on_detention_attendance_id"
-  add_index "detention_students", ["students_id"], name: "index_detention_students_on_students_id"
+  add_index "detention_students", ["detention_attendance_id"], name: "index_detention_students_on_detention_attendance_id", using: :btree
+  add_index "detention_students", ["students_id"], name: "index_detention_students_on_students_id", using: :btree
 
   create_table "infractions", force: :cascade do |t|
     t.string   "name"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "referral_infractions", ["infraction_id"], name: "index_referral_infractions_on_infraction_id"
-  add_index "referral_infractions", ["referral_id"], name: "index_referral_infractions_on_referral_id"
+  add_index "referral_infractions", ["infraction_id"], name: "index_referral_infractions_on_infraction_id", using: :btree
+  add_index "referral_infractions", ["referral_id"], name: "index_referral_infractions_on_referral_id", using: :btree
 
   create_table "referrals", force: :cascade do |t|
     t.integer  "student_id"
@@ -74,8 +77,8 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "referrals", ["staff_member_id"], name: "index_referrals_on_staff_member_id"
-  add_index "referrals", ["student_id"], name: "index_referrals_on_student_id"
+  add_index "referrals", ["staff_member_id"], name: "index_referrals_on_staff_member_id", using: :btree
+  add_index "referrals", ["student_id"], name: "index_referrals_on_student_id", using: :btree
 
   create_table "roster_students", force: :cascade do |t|
     t.integer  "roster_id"
@@ -84,8 +87,8 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "roster_students", ["roster_id"], name: "index_roster_students_on_roster_id"
-  add_index "roster_students", ["student_id"], name: "index_roster_students_on_student_id"
+  add_index "roster_students", ["roster_id"], name: "index_roster_students_on_roster_id", using: :btree
+  add_index "roster_students", ["student_id"], name: "index_roster_students_on_student_id", using: :btree
 
   create_table "rosters", force: :cascade do |t|
     t.integer  "staff_id"
@@ -94,7 +97,7 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "rosters", ["staff_id"], name: "index_rosters_on_staff_id"
+  add_index "rosters", ["staff_id"], name: "index_rosters_on_staff_id", using: :btree
 
   create_table "school_infractions", force: :cascade do |t|
     t.integer  "school_id"
@@ -103,8 +106,8 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "school_infractions", ["infraction_id"], name: "index_school_infractions_on_infraction_id"
-  add_index "school_infractions", ["school_id"], name: "index_school_infractions_on_school_id"
+  add_index "school_infractions", ["infraction_id"], name: "index_school_infractions_on_infraction_id", using: :btree
+  add_index "school_infractions", ["school_id"], name: "index_school_infractions_on_school_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -140,9 +143,9 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.boolean  "confirmed?"
   end
 
-  add_index "staff_members", ["email"], name: "index_staff_members_on_email", unique: true
-  add_index "staff_members", ["reset_password_token"], name: "index_staff_members_on_reset_password_token", unique: true
-  add_index "staff_members", ["school_id"], name: "index_staff_members_on_school_id"
+  add_index "staff_members", ["email"], name: "index_staff_members_on_email", unique: true, using: :btree
+  add_index "staff_members", ["reset_password_token"], name: "index_staff_members_on_reset_password_token", unique: true, using: :btree
+  add_index "staff_members", ["school_id"], name: "index_staff_members_on_school_id", using: :btree
 
   create_table "student_parents", force: :cascade do |t|
     t.integer  "student_id"
@@ -151,8 +154,8 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "student_parents", ["parent_id"], name: "index_student_parents_on_parent_id"
-  add_index "student_parents", ["student_id"], name: "index_student_parents_on_student_id"
+  add_index "student_parents", ["parent_id"], name: "index_student_parents_on_parent_id", using: :btree
+  add_index "student_parents", ["student_id"], name: "index_student_parents_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
@@ -167,7 +170,7 @@ ActiveRecord::Schema.define(version: 20151028150316) do
     t.string   "phone"
   end
 
-  add_index "students", ["last_name"], name: "index_students_on_last_name"
-  add_index "students", ["school_id"], name: "index_students_on_school_id"
+  add_index "students", ["last_name"], name: "index_students_on_last_name", using: :btree
+  add_index "students", ["school_id"], name: "index_students_on_school_id", using: :btree
 
 end

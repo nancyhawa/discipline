@@ -32,3 +32,34 @@
   1px solid #dbdee0;
   padding-left: 5%;
 }
+
+#student_name_suggestions {
+  // display: none;
+  position:absolute;
+  z-index: 30000;
+  width: 100%;
+  top: 30px;
+  right: 0px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#referral_student_id {
+  width: 30% !important;
+}
+
+#ms-sel-ctn {
+  width: 30% !important;
+}
+
+#dropdown-menu {
+  z-index: 1000 !important;
+}
+
+input[type="text"] {
+  width: 500px !important;
+}
+
+.control-label {
+  margin-bottom: 10px;
+}

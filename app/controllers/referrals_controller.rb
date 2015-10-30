@@ -8,6 +8,7 @@ class ReferralsController < ApplicationController
   end
 
   def create
+    # binding.pry
     Referral.build_from_form_input(params, referral_params)
     redirect_to new_referral_path
   end
@@ -22,6 +23,10 @@ class ReferralsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def search_students
+
   end
 
   private
