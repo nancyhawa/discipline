@@ -10,9 +10,9 @@ School.create(name: "KECSS")
 
 XMLParser.new('seed-data.xml').build_students_from_xml
 
-Infraction.create(name: "Vandalism")
-Infraction.create(name: "Inappropriate sexual behavior")
-Infraction.create(name: "Disrupting the educational process")
-Infraction.create(name: "Profanity")
 Infraction.create(name: "Bullying or threatening behavior")
+Infraction.create(name: "Inappropriate sexual behavior")
+Infraction.create(name: "Vandalism")
+Infraction.create(name: "Profanity")
 Infraction.create(name: "Insubordination")
+Infraction.create(name: "Disrupting the educational process")

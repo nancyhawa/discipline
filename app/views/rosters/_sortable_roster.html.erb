@@ -1,0 +1,16 @@
+<ul id="selected-students-list" class="connectedSortable" style="list-style-type:none">
+  <li class="list-header">Current Roster</li>
+  <% @roster.students.sort_by {|s| s.last_name }.each do |student| %>
+    <li class="student-sort-div-wrapper">
+      <div class="student-name">
+        <span class="vertical-center"><%= student.full_name %></span>
+      </div>
+      <div class="minus-icon fa fa-minus">
+
+      </div>
+      <div class="student-id hidden">
+        <%= hidden_field_tag("student_id", student.id, class:"student-id-hidden-field form-control text-area-input") %><br />
+      </div>
+    </li>
+  <% end %>
+</ul>

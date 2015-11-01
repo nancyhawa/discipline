@@ -1,0 +1,21 @@
+<ul id="all-students-list" class="connectedSortable">
+  <li class="list-header">All Students</li>
+  <% Student.all.each do |student| %>
+    <% if !(@roster.students.include?(student)) %>
+      <li class="student-sort-div-wrapper sortable-student-info-wrapper">
+        <div class="student-name">
+          <span class="vertical-center"><%= student.full_name %></span>
+        </div>
+        <div class="add-icon fa fa-plus">
+
+        </div>
+        <div class="student-id hidden">
+          <%= hidden_field_tag("student_id", student.id, class:"student-id-hidden-field form-control text-area-input") %><br />
+        </div>
+        <div class="student-grade hidden">
+          <%= hidden_field_tag("student_grade", student.grade, class:"student-grade-hidden-field form-control text-area-input") %><br />
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

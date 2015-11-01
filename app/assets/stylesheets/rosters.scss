@@ -1,0 +1,119 @@
+// Place all the styles related to the Rosters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.vertical-center {
+    vertical-align: middle;
+}
+
+.grade-checkbox {
+  position:relative;
+  float:left;
+  width: 30px;
+  height: 30px;
+}
+
+.grade-checkbox-wrapper {
+  position: relative;
+  float: left;
+  margin: auto;
+}
+
+.student-sort-div-wrapper {
+  position:relative;
+  background-color: white;
+  border: #dbdee0 solid 1px;
+  height: 3em;
+  text-align: center;
+  width: 100%;
+  margin-top: 5%;
+  border-radius: 5px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.list-header {
+  position:relative;
+  border: #dbdee0 solid 1px;
+  background-color: #FF751A;
+  color: white;
+  height: 3em;
+  text-align: center;
+  width: 100%;
+  margin-top: 5%;
+  border-radius: 5px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+#all-students-list, #selected-students-list{
+  // padding-left: 0px !important;
+  list-style-position: inside;
+  list-style-type: none;
+  position: relative;
+  float: left;
+  width: 45%;
+  margin: 2%;
+  height: 500px;
+  padding: 2%;
+  border: 2px solid black;
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+
+.highlight {
+  border: 2px solid red;
+}
+
+.student-name {
+  position: relative;
+  width: 80%;
+  float: left
+}
+.add-icon {
+  position: relative;
+  width: 20%;
+  float: left;
+  border-left: #dbdee0 solid 1px;
+  color: #009933;
+}
+.minus-icon {
+  position: relative;
+  width: 20%;
+  float: left;
+  border-left: #dbdee0 solid 1px;
+  color: #FF0000;
+}
+
+#filter-by-name, #filter-by-grade {
+  width: 90%;
+  clear: both;
+  margin: 25px auto;
+  background-color: white;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.title-submit-button {
+  position: relative;
+  float: left;
+  display:  block;
+  margin-left: 2%;
+}
+//
+#roster_title {
+  width: 80% !important;
+  position: relative;
+  float: left;
+}
+
+#filters {
+  position: relative;
+  display: block;
+  clear: both;
+  margin-top: 10%;
+  margin-left: 2%;
+}
+
+#show-name-filter-btn, #show-grade-filter-btn {
+  margin: 2%;
+  width: 25% !important;
+}

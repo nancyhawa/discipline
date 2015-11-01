@@ -9,8 +9,9 @@ class Roster < ActiveRecord::Base
   end
 
   def remove_students(student_ids)
+    student_ids.map! {|id| id.to_i }
     students.each do |student|
-      students.delete(student) unless student_ids.include?(student.id.to_s)
+      students.delete(student) unless student_ids.include?(student.id)
       save
     end
   end

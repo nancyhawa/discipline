@@ -1,0 +1,48 @@
+<div class="col-lg-6 col-md-6 visible-md visible-lg visible-sm visible-xs clementine-content" id="referral-page">
+  <h1 id="title-header">
+    <%= @roster.title || "Untitled Roster" %>
+  </h1>
+  <div class="title-submit">
+    <form class="title-submit-form form-inline">
+      <div class="form-group">
+        <%= text_field_tag("roster[title]", nil, placeholder: @roster.title || "Please enter a title for your roster.", class:"form-control") %>
+      </div>
+      <% if @roster.title %>
+        <button type="submit" class="title-submit-button btn btn-sm btn-primary">Edit Title</button>
+      <% else %>
+        <button type="submit" class="title-submit-button btn btn-sm btn-primary">Submit Title</button>
+      <% end %>
+    </form>
+  </div>
+
+  <div id="filters">
+    <button id="show-grade-filter-btn" class="btn btn-sm btn-primary" style="display:block"><i class="fa fa-filter"></i> Filter By Grade</button>
+    <div id="filter-by-grade" class="clearfix" style="display:none">
+      <p>Select the grades you would like us to include.</p>
+      <div class="grade-checkbox-wrapper clearfix">
+        <% current_staff_member.school.grades.each do |grade| %>
+          <div class="grade-checkbox">
+            <div class="grade-checkbox-empty fa fa-circle-o">
+            </div>
+            <div class="grade-text">
+              <%=grade.to_s%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <button id="show-name-filter-btn" class="btn btn-sm btn-primary" style="display:block"><i class="fa fa-search"></i> Search By Name</button>
+    <div id="filter-by-name" style="display:none">
+      <p>Start typing to filter by student name</p>
+      <%= text_field_tag("student[name]", nil, class:"form-control", id:"student-name-filter-field") %><br />
+    </div>
+  </div>
+
+  <div id="draggable-student-lists">
+    <%= render partial: 'sortform' %>
+  </div>
+</div>
+
+<% if !!current_staff_member %>
+  <%= render partial: 'activity_feed' %>
+<% end %>
