@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+School.create(name: "KECSS")
+
 XMLParser.new('seed-data.xml').build_students_from_xml
 
 Infraction.create(name: "Vandalism")

@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   resources :students
   resources :referrals
+  # resources :staff_members, only: [:index, :show] do
+  resources :rosters
+  # end
+
+  post '/rosters/:id/title', to: 'rosters#title', as: 'roster_title'
 
   devise_for :staff_members, :controllers => {:registrations => "staff_members/registrations"}
   # devise_for :staff_members

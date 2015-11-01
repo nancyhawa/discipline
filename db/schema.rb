@@ -1,5 +1,5 @@
 # encoding: UTF-8
-# This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the base. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028150316) do
+ActiveRecord::Schema.define(version: 20151031150334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,13 +91,13 @@ ActiveRecord::Schema.define(version: 20151028150316) do
   add_index "roster_students", ["student_id"], name: "index_roster_students_on_student_id", using: :btree
 
   create_table "rosters", force: :cascade do |t|
-    t.integer  "staff_id"
+    t.integer  "staff_member_id"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "rosters", ["staff_id"], name: "index_rosters_on_staff_id", using: :btree
+  add_index "rosters", ["staff_member_id"], name: "index_rosters_on_staff_member_id", using: :btree
 
   create_table "school_infractions", force: :cascade do |t|
     t.integer  "school_id"
