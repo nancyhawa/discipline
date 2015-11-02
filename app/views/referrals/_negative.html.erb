@@ -1,10 +1,11 @@
   <h1>Create a New Report - Referral</h1>
-<div class="form-group">
-  <%= check_box_tag("referral[deans_referral?][]", "true") %>
-  <%= label_tag("This is a dean's referral stemming from an incident that resulted in suspension.") %><br />
-</div>
-
+  
 <%= form_tag(referrals_path) do |f| %>
+  <div class="form-group">
+    <%= check_box_tag("referral[deans_referral?][]", "true") %>
+    <%= label_tag("This is a dean's referral stemming from an incident that resulted in suspension.") %><br />
+  </div>
+
 
   <%= render partial: 'date' %>
   <%= render partial: 'student_name_input' %>

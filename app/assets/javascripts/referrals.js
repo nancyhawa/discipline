@@ -5,7 +5,7 @@ $(document).ready(function(){
   uniformReferralListener();
 
   $(function() {
-    $("#referral_student_id").magicSuggest({
+    $(".referral_student_id").magicSuggest({
         highlight: false,
         maxSuggestions: 15,
         noSuggestionText: 'No result matching your entry.',
@@ -13,11 +13,6 @@ $(document).ready(function(){
         maxSelection: 1
     });
   });
-  // $("select").combobox()
-  // studentNameListener();
-  // studentNameBlurListener();
-  // studentNameFocusListener();
-  // nameChoiceListener();
 })
 
 function positiveReferralListener(){

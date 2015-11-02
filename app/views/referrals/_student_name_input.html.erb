@@ -13,7 +13,7 @@
   <%= label_tag(:student_name, nil, class:"control-label") %>:<br />
   <div class="controls">
     <div id="student-name-input-field" class="input-group col-sm-4">
-      <%= select_tag("referral[student_id]", options_from_collection_for_select(@students, 'id', "full_name"), class:"form-control date-picker") %>
+      <%= select_tag("referral[student_id]", options_from_collection_for_select(@students, 'id', "full_name"), class:"referral_student_id form-control") %>
     </div>
   </div>
 </div>

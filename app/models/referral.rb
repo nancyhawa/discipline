@@ -17,6 +17,8 @@ class Referral < ActiveRecord::Base
     build_positive if type == "acclaim"
   end
 
+  private
+
   def self.build_positive
     referral = Referral.create(@@referral_params)
     referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
