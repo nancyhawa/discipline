@@ -13,13 +13,10 @@ skip_before_filter :require_no_authentication, only: :create
     admin = params[:staff_member][:admin] == "true" ? true : false
     school_id = current_staff_member.school.id
     @staff_member = StaffMember.new_from_admin(email, school_id, admin)
+    @staff_member.save
 
     respond_to do |format|
-      # if @staff_member.save
-      #   format.json {head :ok}
-      # else
-        format.json {render :json => { :error => @staff_member.errors }}
-      # end
+      format.json {render :json => { :error => @staff_member.errors }}
     end
   end
   # POST /resource

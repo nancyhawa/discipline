@@ -7,6 +7,7 @@ function staffMemberMassSubmitListener(){
     e.preventDefault()
     $('tr').each(function(i, element){
       if (i > 0){
+        var row = this
         var email = $(element).find('.staff-member-email').val()
         var admin = $(element).find('.staff-member-role').checked ? "true" : "false"
         if (email.length > 0){
@@ -16,7 +17,7 @@ function staffMemberMassSubmitListener(){
             data:  {staff_member: {email: email, admin: admin}},
             success: (function(message){
               var html = !!message["error"]["email"] ? "This email has already been taken.  No action taken." : "Success"
-              
+              $(row).find('.success-message').html(html)
             })
           })
         }
