@@ -1,8 +1,7 @@
 class StaffMembers::RegistrationsController < Devise::RegistrationsController
-# before_filter :require_no_authentication, only: :new
+skip_before_filter :require_no_authentication, only: :create
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
-skip_b
 
   # GET /resource/sign_up
   def new
@@ -10,7 +9,18 @@ skip_b
   end
 
   def create
-    binding.pry
+    email = params[:staff_member][:email]
+    admin = params[:staff_member][:admin] == "true" ? true : false
+    school_id = current_staff_member.school.id
+    @staff_member = StaffMember.new_from_admin(email, school_id, admin)
+
+    respond_to do |format|
+      # if @staff_member.save
+      #   format.json {head :ok}
+      # else
+        format.json {render :json => { :error => @staff_member.errors }}
+      # end
+    end
   end
   # POST /resource
   # def create

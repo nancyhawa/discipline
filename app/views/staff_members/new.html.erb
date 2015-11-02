@@ -8,11 +8,13 @@
     <tr>
       <th>E-Mail Address</th>
       <th>Admin?</th>
+      <th>Success?</th>
     </tr>
     <% 5.times do %>
     <tr>
       <td><%= email_field_tag "staff_member[email]", nil, class: 'form-control staff-member-email'%></td>
       <td><%= check_box_tag("staff_member[role]", 'admin', false, class:'staff-member-role') %></td>
+      <td class="success-message"></td>
     </tr>
     <% end %>
   </table>
