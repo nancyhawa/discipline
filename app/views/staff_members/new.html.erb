@@ -1,0 +1,25 @@
+<div class="col-lg-6 col-md-6 visible-md visible-lg visible-sm visible-xs clementine-content" id="referral-page">
+
+<h2>Add Staff Members To Your School</h2>
+
+<p>Add the emails of any staff members you would like to include below.  They will be sent an e-mail with a pre-generated password that they can change.
+<%= form_tag(staff_member_registration_path, id:'staff-member-mass-submit-form') do |f| %>
+  <table class="table table-bordered">
+    <tr>
+      <th>E-Mail Address</th>
+      <th>Admin?</th>
+    </tr>
+    <% 5.times do %>
+    <tr>
+      <td><%= email_field_tag "staff_member[email]", nil, class: 'form-control staff-member-email'%></td>
+      <td><%= check_box_tag("staff_member[role]", 'admin', false, class:'staff-member-role') %></td>
+    </tr>
+    <% end %>
+  </table>
+
+    <%= submit_tag("Submit", id:"staff-member-mass-submit") %>
+<% end %>
+</div>
+
+<%= render partial: 'activity_feed' %>
+<!-- # <%# render "StaffMembers/shared/links" %> -->

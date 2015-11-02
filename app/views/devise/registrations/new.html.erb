@@ -1,54 +1,22 @@
-<h2>Sign Up</h2>
+<h2>Add Staff Members To Your School</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+  <p>Add the emails of any staff members you would like to include below.  They will be sent an e-mail with a pre-generate password that they can change.
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
+  <table>
+    <th>
+      <td>E-Mail Address</td>
+      <td>Admin?</td>
+    </th>
+    <tr>
+      <%= f.email_field :email %>
+    </tr>
+      <%= check_box_tag(:role, 'admin') %>
+    </tr>
 
-  <div class="field">
-    <%= f.label :school %><br />
-    <%= f.text_field :school, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :professional_name %><br />
-    <%= f.text_field :professional_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= submit_tag("Submit") %>
 <% end %>
 
-<%= render "StaffMembers/shared/links" %>
+<!-- # <%# render "StaffMembers/shared/links" %> -->
