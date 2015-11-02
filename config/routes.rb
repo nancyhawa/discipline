@@ -9,8 +9,15 @@ Rails.application.routes.draw do
   # end
 
   post '/rosters/:id/title', to: 'rosters#title', as: 'roster_title'
+  get '/staff_members/new', to: 'staff_members#new', as: 'new_staff_member'
 
+  # devise_for :staff_members, path_names: {
+  #   sign_up: ''
+  # }
   devise_for :staff_members, :controllers => {:registrations => "staff_members/registrations"}
+  # devise_scope :staff_member do
+  #   post '/registrations/staff_members', to: 'staff_members/registrations#create', as: 'create_staff_members'
+  # end
   # devise_for :staff_members
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

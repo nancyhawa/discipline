@@ -1,39 +1,53 @@
 class StaffMembers::RegistrationsController < Devise::RegistrationsController
-before_filter :require_no_authentication, only: :new
+skip_before_filter :require_no_authentication, only: :create
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-    super
+    # super
   end
 
-  # POST /resource
   def create
-    params_hash = sign_up_params.to_h
-    params_hash[:school_id] = School.where(name: sign_up_params[:school]).first.id
-    params_hash.delete("school")
-    params_hash[:confirmed?] = false
-    build_resource(params_hash)
+    email = params[:staff_member][:email]
+    admin = params[:staff_member][:admin] == "true" ? true : false
+    school_id = current_staff_member.school.id
+    @staff_member = StaffMember.new_from_admin(email, school_id, admin)
 
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message :notice, :signed_up if is_flashing_format?
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
+    respond_to do |format|
+      # if @staff_member.save
+      #   format.json {head :ok}
+      # else
+        format.json {render :json => { :error => @staff_member.errors }}
+      # end
     end
   end
+  # POST /resource
+  # def create
+    # params_hash = sign_up_params.to_h
+    # params_hash[:school_id] = School.where(name: sign_up_params[:school]).first.id
+    # params_hash.delete("school")
+    # params_hash[:confirmed?] = false
+    # build_resource(params_hash)
+    #
+    # resource.save
+    # yield resource if block_given?
+    # if resource.persisted?
+    #   if resource.active_for_authentication?
+    #     set_flash_message :notice, :signed_up if is_flashing_format?
+    #     sign_up(resource_name, resource)
+    #     respond_with resource, location: after_sign_up_path_for(resource)
+    #   else
+    #     set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
+    #     expire_data_after_sign_in!
+    #     respond_with resource, location: after_inactive_sign_up_path_for(resource)
+    #   end
+    # else
+    #   clean_up_passwords resource
+    #   set_minimum_password_length
+    #   respond_with resource
+    # end
+  # end
 
   # GET /resource/edit
   # def edit
