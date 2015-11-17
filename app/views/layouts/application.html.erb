@@ -349,7 +349,8 @@
 						<li>
 							<a class="dropmenu" href="/index.html"><i class="fa fa-cogs"></i><span class="hidden-sm text"> Settings</span> <span class="chevron closed"></span></a>
 							<ul>
-								<li><a class="submenu" href="/rosters.html"><i class="fa fa-list"></i><span class="hidden-sm text"> Rosters</span></a></li>
+								<!-- <li><a class="submenu" href="/rosters.html"><i class="fa fa-list"></i><span class="hidden-sm text"> Rosters</span></a></li> -->
+								<%= link_to "Profile", staff_member_path(current_staff_member) %>
 								<li><a class="submenu" href="/staff_members/show"><i class="fa fa-user"></i><span class="hidden-sm text"> Profile</span></a></li>
 								<!-- <li><a class="submenu" href="ui-elements.html"><i class="fa fa-eye"></i><span class="hidden-sm text"> Elements</span></a></li> -->
 							</ul>

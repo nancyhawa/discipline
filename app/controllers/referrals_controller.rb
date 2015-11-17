@@ -9,7 +9,7 @@ class ReferralsController < ApplicationController
   def new
 
     @referral = Referral.new
-    @students = Student.all
+    @students = current_staff_member.school.students.all
   end
 
   def create
@@ -34,8 +34,12 @@ class ReferralsController < ApplicationController
 
   end
 
+  def filter_students
+  binding.pry
+  end
   private
   def referral_params
     params.require(:referral).permit(:student_id, :date, :anecdotal, :additional_information, :deans_referral?, :positive?, :location, :period, :referral_type, :students, :staff_member_id)
   end
+
 end

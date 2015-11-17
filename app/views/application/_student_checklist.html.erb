@@ -1,0 +1,5 @@
+
+<% @students.each do |student| %>
+  <%= check_box_tag("referral[students][]", student.id) %>
+  <%= label_tag(student.full_name, student.full_name) %><br />
+<% end %>

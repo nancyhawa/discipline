@@ -85,3 +85,14 @@ function nameChoiceListener(){
     $(".student_name_input_field").val($(this).text())
   })
 }
+
+function filterChecklists(){
+  $.ajax({
+  url: "/referrals/filter",
+  type: 'post',
+  data:  {roster_id: $("#roster-drop-down").val()},
+  success: (function(message){
+    $('#draggable-student-lists').html(message)
+    })
+  })
+}

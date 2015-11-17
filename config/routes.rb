@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   resources :referrals
   # resources :staff_members, only: [:index, :show] do
   resources :rosters
+  resources :staff_members
   # end
 
   post '/rosters/:id/title', to: 'rosters#title', as: 'roster_title'
-  get '/staff_members/new', to: 'staff_members#new', as: 'new_staff_member'
+  post '/referrals/filter', to: 'referrals#filter_students', as: 'filter_students'
+  # get '/staff_members/new', to: 'staff_members#new', as: 'new_staff_member'
 
   # devise_for :staff_members,
   devise_for :staff_members,

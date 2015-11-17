@@ -1,6 +1,6 @@
 class StaffMember < ActiveRecord::Base
   belongs_to :school
-  has_many :roster
+  has_many :rosters
   has_many :students, through: :rosters
 
   validates :email, uniqueness: true
@@ -11,6 +11,11 @@ class StaffMember < ActiveRecord::Base
 
   def self.new_from_admin(email, school_id, admin = false)
     generated_password = Devise.friendly_token.first(8)
+    user = StaffMember.new(:email => email, :password => generated_password, school_id: school_id, admin: admin)
+    # RegistrationMailer.welcome(user, generated_password).deliver
+  end
+
+  def self.new_from_console(email, school_id, admin = true)
     user = StaffMember.new(:email => email, :password => generated_password, school_id: school_id, admin: admin)
     # RegistrationMailer.welcome(user, generated_password).deliver
   end

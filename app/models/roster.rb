@@ -1,5 +1,5 @@
 class Roster < ActiveRecord::Base
-  belongs_to :staff
+  belongs_to :staff_member
   has_many :roster_students
   has_many :students, through: :roster_students
 

@@ -41,7 +41,7 @@ function makeListsSortable(){
 
 function updateLists(){
   $.ajax({
-  url: window.location.href.slice(0, -5),
+  url: window.location.href.slice(0, -5)
   type: 'patch',
   data:  {roster_ids: rosterIds()},
   success: (function(message){

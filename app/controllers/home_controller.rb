@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  # before_action :authenticate_user!, :except => [:index]
   helper_method :resource_name, :resource, :devise_mapping
 
   def resource_name
