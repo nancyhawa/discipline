@@ -7,13 +7,11 @@ class ReferralsController < ApplicationController
   end
 
   def new
-
     @referral = Referral.new
     @students = current_staff_member.school.students.all
   end
 
   def create
-    # binding.pry
     Referral.build_from_form_input(params, referral_params)
     redirect_to new_referral_path
   end
@@ -35,11 +33,22 @@ class ReferralsController < ApplicationController
   end
 
   def filter_students
-  binding.pry
+    if Roster.exists?(params[:roster_id])
+      @students = Roster.find(params[:roster_id]).students
+    else
+      @students = current_staff_member.school.students
+    end
+
+    respond_to do |format|
+      format.html { render partial: 'student_checklist'}
+      format.js { render partial: 'student_checklist'}
+      format.json { render partial: 'student_checklist'}
+    end
   end
+
   private
   def referral_params
-    params.require(:referral).permit(:student_id, :date, :anecdotal, :additional_information, :deans_referral?, :positive?, :location, :period, :referral_type, :students, :staff_member_id)
+    params.require(:referral).permit(:student_id, :date, :anecdotal, :additional_information, :deans_referral?, :positive?, :location, :period, :referral_type, :students, :staff_member_id, :infractions, :minutes)
   end
 
 end

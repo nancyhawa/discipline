@@ -15,9 +15,4 @@ class StaffMember < ActiveRecord::Base
     # RegistrationMailer.welcome(user, generated_password).deliver
   end
 
-  def self.new_from_console(email, school_id, admin = true)
-    user = StaffMember.new(:email => email, :password => generated_password, school_id: school_id, admin: admin)
-    # RegistrationMailer.welcome(user, generated_password).deliver
-  end
-
 end

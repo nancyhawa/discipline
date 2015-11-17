@@ -1,13 +1,12 @@
 <h1>Create a New Report - Student Lateness</h1>
 
-<select name="rosters" id="roster-drop-down">
-  <option value=""></option>
+<select name="rosters" class="roster-drop-down">
+  <option value="-1"></option>
   <% current_staff_member.rosters.each do |roster| %>
-  <option value= <%= roster.id %>><%= roster.title %> </option>
-
+    <option value= <%= roster.id %>><%= roster.title %> </option>
   <% end %>
-
 </select>
+
 <%= form_tag(referrals_path) do |f| %>
 
   <%= render partial: 'date' %>
@@ -27,7 +26,7 @@
   <%= hidden_field_tag("referral[referral_type]", "tardy", class:"form-control text-area-input") %><br />
   <%= hidden_field_tag("referral[staff_member_id]", current_staff_member.id, class:"form-control text-area-input") %><br />
 
-  <div class="form-group" id="student-list">
+  <div class="form-group student-checklist">
     <%= render partial: 'student_checklist' %>
   </div>
 

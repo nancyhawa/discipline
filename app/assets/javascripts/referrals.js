@@ -13,6 +13,10 @@ $(document).ready(function(){
         maxSelection: 1
     });
   });
+
+  $(".roster-drop-down").on('change', function(){
+    filterChecklists(this)
+  })
 })
 
 function positiveReferralListener(){
@@ -86,13 +90,16 @@ function nameChoiceListener(){
   })
 }
 
-function filterChecklists(){
+function filterChecklists(dropdown){
+  rosterId = $(dropdown).val()
+  // debugger
   $.ajax({
   url: "/referrals/filter",
   type: 'post',
-  data:  {roster_id: $("#roster-drop-down").val()},
+  data:  {roster_id: rosterId},
   success: (function(message){
-    $('#draggable-student-lists').html(message)
+    // debugger
+    $('.student-checklist').html(message)
     })
   })
 }

@@ -20,27 +20,24 @@ class Referral < ActiveRecord::Base
   private
 
   def self.build_positive
-    referral = Referral.create(@@referral_params)
-    referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
+    referral = create_referral
     referral.update_attribute(:student_id, @@params[:referral][:student_id][0].to_i)
     referral.save
   end
 
   def self.build_discipline
-    referral = Referral.create(@@referral_params)
+    referral = create_referral
     @@params[:referral][:infractions].each do | input |
       ReferralInfraction.create(referral_id: referral.id, infraction_id: Infraction.find_by(name: input).id)
     end
     referral.update_attribute(:student_id, @@params[:referral][:student_id][0].to_i)
-    referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
     referral.save
   end
 
   def self.build_uniform
     @@params[:referral][:students].each do |student_id|
-      referral = Referral.create(@@referral_params)
+      referral = create_referral
       referral.student_id = student_id.to_i
-      referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
       referral.update_attribute(:anecdotal, "Student was out of uniform.")
       referral.save
     end
@@ -48,9 +45,8 @@ class Referral < ActiveRecord::Base
 
   def self.build_tardy
     @@params[:referral][:students].each do |student_id|
-      referral = Referral.create(@@referral_params)
+      referral = create_referral
       referral.student_id = student_id.to_i
-      referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
       if !!(@@params[:minutes])
         referral.update_attribute(:anecdotal, "Student was #{@@params[:minutes]} minutes late to class.")
       else
@@ -58,6 +54,11 @@ class Referral < ActiveRecord::Base
       end
       referral.save
     end
+  end
+
+  def create_referral
+    referral = Referral.create(@@referral_params)
+    referral.date = @@params["referral"][:date][0].to_date || DateTime.now.to_date
   end
 
 end
