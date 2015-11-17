@@ -1,6 +1,5 @@
 class XMLParser
 
-
   def initialize(file)
     @file = file
     @doc = Nokogiri::XML(File.open(@file)).remove_namespaces!
@@ -25,7 +24,6 @@ class XMLParser
   end
 
   def generate_student_data_hash(row)
-    # binding.pry
     data = Hash[hash_keys.zip(row_cells(row))]
     parse_student_name(data)
     return data
@@ -49,7 +47,7 @@ class XMLParser
       grade: data["Grade Level"].to_i,
       meal_code: data["Meal Code"],
       birthdate: data["Birth Date"],
-      school_id: 1,
+      school_id: 1, #temporary for testing
       phone: data["Phone Number"],
     )
     end
