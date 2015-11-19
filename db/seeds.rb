@@ -8,7 +8,7 @@
 
 School.create(name: "KECSS")
 
-XMLParser.new('seed-data.xml').build_students_from_xml
+XMLParser.new('seed-data1.xml').build_students_from_xml
 
 Infraction.create(name: "Bullying or threatening behavior")
 Infraction.create(name: "Inappropriate sexual behavior")
